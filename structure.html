@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <title>웹페이지이름</title>
+    <meta charset="utf-8">
+    <script>
+        var Links = {
+            setColor:function(color){
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while(i<alist.length){
+                    alist[i].style.color=color;
+                    i = i + 1;
+                }
+            }
+        }
+        var Body = {
+            setbackgroundColor:function(color){
+                document.querySelector('body').style.backgroundColor=color;
+            },
+            setColor:function(color){
+                document.querySelector('body').style.color=color;
+            }
+        }
+        var day_night = {
+            nightdayHandler:function(self){
+                var target = document.querySelector('body');
+                var u = document.querySelector('u');
+                if(self.value === 'night'){
+                    Body.setbackgroundColor('black');
+                    Body.setColor('white');
+                    u.style.color = 'yellow';
+                    self.value='day';
+                    Links.setColor('powderblue');
+                }
+                else{
+                    Body.setbackgroundColor('white');
+                    Body.setColor('black');
+                    u.style.color = 'red';
+                    self.value='night';
+                    Links.setColor('blue');
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>제목</h1>
+    <input type="button" value="night" onclick="
+        day_night.nightdayHandler(this);
+    ">
+    <ol>
+        <li><a href="1.html">HTMI</a></li>
+        <li><a href="2.html">CSS</a></li>
+        <li><a href="3.html">JavaScript</a></li>
+    </ol>
+
+    <div id="설명문">
+        <h2>HTMI에 관하여</h2>
+        <p> <a href="https://www.w3.org/TR/2011/WD-html5-20110405/" title="Hyper Text Markup Language">HTML</a>는 HyperText (웹 페이지에서 다른 페이지로 이동할 수 있도록 
+            하는 것) 기능을 가진 문서를 만드는 언어입니다. 다시 말해, 
+            구조를 설계할 때 사용되는 언어로 <u>hyper link 시스템</u>을 가지고 있으며, 
+            흔히 말하는 웹 페이지를 위한 <strong>마크업 언어</strong>라고 할 수 있습니다.
+        </p>
+    </div>
+</body>
+</html>
